@@ -1,0 +1,22 @@
+#+TITLE: FFI Haskell to C
+
+This Repository demonstrate how to call Haskell code to C Program
+
+* How to compile
+
+first we need compile haskell source
+
+#+BEGIN_SRC sh
+ghc -c -O Safe.hs
+#+END_SRC
+
+it will produce
+- Safe_stub.h
+- Safe.hi
+- Safe.o
+
+and then we can compile c program with ghc
+
+#+BEGIN_SRC sh
+ghc --make -no-hs-main -optc-O test.c Safe -o test
+#+END_SRC
